@@ -5,13 +5,14 @@ const morgan = require('morgan');
 
 const app = express();
 
-app.use(morgan('conbine'));
+// Middleware
+app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/status', (req, res) => {
+app.post('/register', (req, res) => {
   res.send({
-    message: 'Hello World!',
+    message: `Your ${req.body.email}! user was registered! Have Fun`,
   });
 });
 
